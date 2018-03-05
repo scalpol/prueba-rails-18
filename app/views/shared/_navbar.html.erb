@@ -6,8 +6,8 @@
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav">
       <% if user_signed_in? %>
-        <li class="nav-item navbar-text"><%= current_user.tasks.count %> tareas completadas.</li>
-        <li class="nav-item"><%= link_to 'Cerrar sesión', destroy_user_session_path, class: 'nav-link' %></li>
+        <li class="nav-item navbar-text"><%= current_user.tasks.count %> tareas completadas (de <%= Task.all.count %>).</li>
+        <li class="nav-item"><%= link_to 'Cerrar sesión', destroy_user_session_path, method: :delete, class: 'nav-link' %></li>
       <% else %>
         <li class="nav-item"><%= link_to 'Registrarme', new_user_registration_path, class: 'nav-link' %></li>
         <li class="nav-item"><%= link_to 'Iniciar sesión', new_user_session_path, class: 'nav-link' %></li>

@@ -4,9 +4,9 @@
     <div class="card-body">
       <h5 class="card-title"><%= @task.title %></h5>
         <% if current_user.tasks.where(id: @task.id).present? %>
-          <%= link_to 'Hecha', por_hacer_path(@task), method: :delete, class: 'btn btn-success' %>
+          <%= link_to 'Hecha', task_user_task_path(@task.id, id: current_user), method: :delete, class: 'btn btn-success' %>
         <% else %>
-          <%= link_to 'Aún por hacer', hecha_path(@task.id), method: :postm, class: 'btn btn-warning' %>
+          <%= link_to 'Aún por hacer', task_user_tasks_path(@task.id), method: :postm, class: 'btn btn-warning' %>
         <% end %>
     </div>
   </div>
